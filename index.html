@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تطبيق أصحاب الشبكات</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>📡 تطبيق أصحاب الشبكات</h1>
+      <p>إدارة المشتركين والباقات والتحصيلات من مكان واحد.</p>
+    </header>
+
+    <main class="layout">
+      <section class="card stats" aria-label="ملخص سريع">
+        <h2>الملخص السريع</h2>
+        <div class="stats-grid">
+          <article>
+            <h3>عدد المشتركين</h3>
+            <p id="statSubscribers">0</p>
+          </article>
+          <article>
+            <h3>الباقات النشطة</h3>
+            <p id="statPlans">0</p>
+          </article>
+          <article>
+            <h3>التحصيل الشهري</h3>
+            <p id="statRevenue">0</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>إضافة باقة</h2>
+        <form id="planForm" class="stack">
+          <label>
+            اسم الباقة
+            <input type="text" id="planName" placeholder="مثال: 20 ميجابت" required />
+          </label>
+          <label>
+            السعر الشهري
+            <input type="number" id="planPrice" min="1" required />
+          </label>
+          <button type="submit">حفظ الباقة</button>
+        </form>
+        <ul id="plansList" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>إضافة مشترك</h2>
+        <form id="subscriberForm" class="stack">
+          <label>
+            الاسم
+            <input type="text" id="subscriberName" required />
+          </label>
+          <label>
+            رقم الهاتف
+            <input type="tel" id="subscriberPhone" required />
+          </label>
+          <label>
+            الباقة
+            <select id="subscriberPlan" required></select>
+          </label>
+          <button type="submit">إضافة المشترك</button>
+        </form>
+        <ul id="subscribersList" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>التحصيلات</h2>
+        <form id="paymentForm" class="stack">
+          <label>
+            المشترك
+            <select id="paymentSubscriber" required></select>
+          </label>
+          <label>
+            الشهر
+            <input type="month" id="paymentMonth" required />
+          </label>
+          <button type="submit">تسجيل الدفع</button>
+        </form>
+        <ul id="paymentsList" class="list"></ul>
+      </section>
+    </main>
+
+    <template id="listItemTemplate">
+      <li class="list-item">
+        <div class="content"></div>
+        <button class="danger">حذف</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
